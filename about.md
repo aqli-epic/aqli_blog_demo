@@ -6,17 +6,22 @@ permalink: /about/
 
 # About this blog
 
-The **Air Quality Life Index Blog** is a public-facing space for translating
-technical air-pollution analysis into clear, evidence-based stories.
+The **Air Quality Life Index Blog** translates air pollution data into clear,
+human-centered stories.
 
-The intended audience includes:
+Through maps, trends, explainers, and policy notes, this blog explores how
+particulate pollution affects life expectancy, why clean air matters, and what
+better air-quality policies can mean for people’s lives.
+
+## Who it is for
 
 - policy professionals
 - researchers
+- data scientists
 - journalists
 - students
 - public-health communicators
-- data scientists working on environmental questions
+- general readers interested in clean air
 
 ## Editorial principle
 

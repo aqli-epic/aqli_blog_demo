@@ -6,7 +6,7 @@ tags: [India, methods, policy]
 ---
 
 Suppose a district has a long-term population-weighted PM₂.₅ concentration of
-55 µg/m³. Suppose the target is the WHO guideline of 5 µg/m³.
+55 µg/m³. Suppose the target is 5 µg/m³.
 
 The concentration gap is:
 

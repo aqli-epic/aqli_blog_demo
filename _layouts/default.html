@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
+
+    <!-- Elegant but practical typography: serif headlines + clean sans body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;850&family=Source+Serif+4:opsz,wght@8..60,600;8..60,750;8..60,850&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   </head>
   <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
     {% include header.html %}
 
     <main class="container">

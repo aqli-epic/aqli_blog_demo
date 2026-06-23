@@ -1,9 +1,15 @@
-<article class="post-card">
-  <p class="post-date">{{ include.post.date | date: "%B %-d, %Y" }}</p>
+<article class="post-card reveal">
+  <div class="post-card-top">
+    <p class="post-date">{{ include.post.date | date: "%B %-d, %Y" }}</p>
+    <span class="read-time">AQLI Note</span>
+  </div>
+
   <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+
   {% if include.post.excerpt %}
     <p>{{ include.post.excerpt | strip_html }}</p>
   {% endif %}
+
   {% if include.post.tags %}
     <div class="tag-row small">
       {% for tag in include.post.tags %}

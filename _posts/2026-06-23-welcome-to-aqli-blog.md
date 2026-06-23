@@ -1,7 +1,7 @@
 ---
 title: "Welcome to the AQLI Blog"
 date: 2026-06-23
-excerpt: "A demo opening post for a Markdown-first blog on air pollution, health, and life expectancy."
+excerpt: "A short opening note for a data-driven blog on air pollution, health, and life expectancy."
 tags: [AQLI, PM2.5, life expectancy]
 ---
 
@@ -31,5 +31,5 @@ Each post should do three things:
 2. show the human meaning
 3. state the caveats clearly
 
-The aim is not to make pollution look dramatic. The aim is to make the cost of
+The goal is not to make pollution look dramatic. The goal is to make the cost of
 pollution measurable.

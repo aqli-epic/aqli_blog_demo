@@ -6,11 +6,11 @@ permalink: /methods/
 
 # Methods
 
-This demo blog is designed for AQLI-style communication.
+AQLI-style communication connects pollution exposure with life expectancy.
 
-## Basic life-expectancy calculation
+## Basic calculation
 
-A simplified expression often used in AQLI-style explainers is:
+A simplified expression is:
 
 \[
 \text{Life expectancy gain} =
@@ -19,15 +19,20 @@ A simplified expression often used in AQLI-style explainers is:
 
 where:
 
-- \(PM_{2.5,baseline}\) is the baseline annual average concentration
-- \(PM_{2.5,target}\) is a policy or health guideline target
-- \(\beta\) is the estimated life-expectancy gain per 1 µg/m³ reduction in long-term PM₂.₅ exposure
+| Symbol | Meaning |
+|---|---|
+| \(PM_{2.5,baseline}\) | Baseline annual average PM₂.₅ concentration |
+| \(PM_{2.5,target}\) | WHO guideline, national standard, or policy target |
+| \(\beta\) | Estimated life-expectancy gain per 1 µg/m³ PM₂.₅ reduction |
 
-For public-facing posts, always state:
+## Minimum reporting checklist
+
+Every post should state:
 
 1. baseline year
-2. target concentration
-3. population weighting method
-4. geographic unit
-5. data source
-6. uncertainty/caveat
+2. pollution target
+3. geographic unit
+4. population-weighting method
+5. PM₂.₅ data source
+6. life-expectancy coefficient
+7. uncertainty and caveats
