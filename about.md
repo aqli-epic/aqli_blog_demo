@@ -31,5 +31,7 @@ uncertainty. It should not hide assumptions. It should explain them.
 ## Authors
 
 Christa HasenKopf, Director of the Clean Air Program at EPIC
+
 Hrishikesh Chandra Gautam, Data Specialist at AQLI
+
 Purushottam Gupta, Data Analyst at AQLI
