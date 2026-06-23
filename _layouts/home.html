@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<section class="section">
+  <h2>Latest posts</h2>
+  {% for post in site.posts limit:3 %}
+    {% include post-card.html post=post %}
+  {% endfor %}
+</section>

@@ -1,0 +1,36 @@
+title: "Air Quality Life Index Blog"
+tagline: "Data stories on air pollution, life expectancy, and policy"
+description: "A demo GitHub Pages blog for explaining AQLI insights using Markdown, data notes, and visual storytelling."
+author: "AQLI Team"
+
+# For a project site such as https://YOUR-USERNAME.github.io/aqli-blog
+# change YOUR-USERNAME below and keep baseurl equal to your repository name.
+url: "https://YOUR-USERNAME.github.io"
+baseurl: "/aqli-blog"
+
+# For a user site named YOUR-USERNAME.github.io, use:
+# url: "https://YOUR-USERNAME.github.io"
+# baseurl: ""
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "page"
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: "post"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
