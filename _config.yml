@@ -9,8 +9,8 @@ url: "https://YOUR-USERNAME.github.io"
 baseurl: "/aqli-blog"
 
 # For a user site named YOUR-USERNAME.github.io, use:
-# url: "https://YOUR-USERNAME.github.io"
-# baseurl: ""
+# url: "https://aqli-epic.github.io"
+# baseurl: "/aqli_blog_demo"
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
