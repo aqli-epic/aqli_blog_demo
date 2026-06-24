@@ -27,3 +27,11 @@ better air-quality policies can mean for people’s lives.
 
 The blog should be technically credible, visually engaging, and honest about
 uncertainty. It should not hide assumptions. It should explain them.
+
+## Authors
+
+Christa HasenKopf, Director of the Clean Air Program at EPIC <br>
+
+Hrishikesh Chandra Gautam, Data Specialist at AQLI <br>
+
+Purushottam Gupta, Data Analyst at AQLI

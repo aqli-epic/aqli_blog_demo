@@ -5,8 +5,8 @@ author: "AQLI Team"
 
 # Project site example:
 # https://YOUR-USERNAME.github.io/aqli-blog
-url: "https://YOUR-USERNAME.github.io"
-baseurl: "/aqli-blog"
+url: "https://aqli-epic.github.io"
+baseurl: "/aqli_blog_demo"
 
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
