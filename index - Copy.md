@@ -6,9 +6,7 @@ title: "Home"
 <section class="hero-grid">
   <div class="hero-copy reveal">
     <p class="eyebrow">AQLI Blog Demo</p>
-
     <h1>Air pollution, translated into years of life.</h1>
-
     <p class="lead">
       A colorful, evidence-led blog for explaining how particulate pollution affects
       life expectancy, why clean-air standards matter, and what better policy could
@@ -23,9 +21,7 @@ title: "Home"
 
   <aside class="impact-panel reveal">
     <p class="eyebrow">Core idea</p>
-
     <strong>PM<sub>2.5</sub> → exposure → life expectancy</strong>
-
     <p>
       The blog turns technical pollution datasets into human-readable stories:
       who is exposed, how much is at stake, and how cleaner air changes the future.
@@ -98,22 +94,15 @@ title: "Home"
 <section class="visual-band reveal">
   <div>
     <p class="eyebrow">Visual identity</p>
-    <h2>AQLI-style pollution scale.</h2>
+    <h2>Scientific, warm, and policy-ready.</h2>
     <p>
-      The color palette follows a pollution-map logic: clean and low exposure
-      in pale tones, higher pollution in orange, red, deep red, and wine.
+      The design uses a warm pollution-to-clean-air palette, large editorial
+      headlines, soft cards, and clear navigation to make technical content easier
+      to read.
     </p>
   </div>
 
   <div class="palette">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 </section>

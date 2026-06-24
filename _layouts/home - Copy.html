@@ -5,11 +5,7 @@ layout: default
 {{ content }}
 
 <section class="section">
-  <div class="section-heading">
-    <p class="eyebrow">Latest posts</p>
-    <h2>Recent notes</h2>
-  </div>
-
+  <h2>Latest posts</h2>
   {% for post in site.posts limit:3 %}
     {% include post-card.html post=post %}
   {% endfor %}
