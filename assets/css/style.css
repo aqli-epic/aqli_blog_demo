@@ -6,20 +6,21 @@
 :root {
   /* AQLI / PM2.5 inspired color scale */
   --aqli-white: #ffffff;
-  --aqli-cream: #fff8ed;
-  --aqli-sun: #ffeda0;
-  --aqli-gold: #fed976;
-  --aqli-orange: #feb24c;
-  --aqli-coral: #fd8d3c;
-  --aqli-red: #fc4e2a;
+  --aqli-cream: #faf7f2;
+  --aqli-sun: #e8ded2;
+  --aqli-gold: #c98f7a;
+  --aqli-orange: #b86b5e;
+  --aqli-coral: #d46a5f;
+  --aqli-red: #b94a48;
   --aqli-strong-red: #e31a1c;
   --aqli-deep-red: #bd0026;
-  --aqli-wine: #800026;
-
+  --aqli-deep-red: #8f2f3f;
+  --aqli-wine: #5f1f35;
+   
   /* Professional support colors */
-  --ink: #17202a;
-  --ink-soft: #34495e;
-  --muted: #667085;
+  --ink: #1f2933;
+  --ink-soft: #4b5563;
+  --muted: #6b7280;
   --line: rgba(23, 32, 42, 0.10);
   --line-strong: rgba(23, 32, 42, 0.16);
 
