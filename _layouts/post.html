@@ -1,25 +1,44 @@
 ---
 layout: default
 ---
-
-<article class="post">
-  <header class="post-header">
-    <p class="eyebrow">{{ page.date | date: "%B %-d, %Y" }}</p>
+<article class="wrap article">
+  <header class="article__head">
+    <p class="kicker">{{ page.section | default: "Story" }}</p>
     <h1>{{ page.title }}</h1>
-    {% if page.excerpt %}
-      <p class="lead">{{ page.excerpt }}</p>
-    {% endif %}
-
-    {% if page.tags %}
-      <div class="tag-row">
-        {% for tag in page.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    {% endif %}
+    {% if page.standfirst %}<p class="standfirst">{{ page.standfirst }}</p>{% endif %}
+    <p class="byline">
+      By {{ page.author | default: site.author.name }}
+      <span class="sep">·</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+      {% if page.reading_time %}<span class="sep">·</span> {{ page.reading_time }} min read{% endif %}
+    </p>
   </header>
 
-  <div class="post-content">
+  {%- if page.pm25 -%}
+  <div class="figure-wide reveal">
+    <p class="kicker">Where this story sits on the scale</p>
+    <div class="lead__stat">
+      <b>{{ page.pm25 }}</b>
+      <span>µg/m³ annual mean PM<sub>2.5</sub> in {{ page.place }}</span>
+    </div>
+    {% include ruler.html value=page.pm25 label=page.place animate=true %}
+    <p class="datum" style="margin-top:2.25rem">
+      Gap to the WHO guideline: {{ page.pm25 | minus: site.who_guideline }} µg/m³ ·
+      Implied life-expectancy gain if closed:
+      {{ page.pm25 | minus: site.who_guideline | times: site.aqli_coefficient | round: 2 }} years
+    </p>
+  </div>
+  {%- endif -%}
+
+  <div class="article__body">
     {{ content }}
+  </div>
+
+  <div class="article__body" style="margin-top:3rem">
+    <hr class="rule-double">
+    <p class="byline" style="margin-top:1.25rem">
+      {% if page.tags %}Filed under: {{ page.tags | join: ", " }} · {% endif %}
+      <a href="{{ '/blog/' | relative_url }}">All stories</a>
+    </p>
   </div>
 </article>

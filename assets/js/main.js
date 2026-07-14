@@ -1,34 +1,35 @@
-const currentPath = window.location.pathname;
+(function () {
+  "use strict";
 
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  const linkPath = new URL(link.href).pathname;
+  /* Mobile sections menu */
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("site-nav");
 
-  if (currentPath === linkPath) {
-    link.setAttribute("aria-current", "page");
-  }
-});
-
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector(".nav-links");
-
-if (menuButton && navLinks) {
-  menuButton.addEventListener("click", () => {
-    const expanded = menuButton.getAttribute("aria-expanded") === "true";
-
-    menuButton.setAttribute("aria-expanded", String(!expanded));
-    navLinks.classList.toggle("open");
-  });
-}
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.textContent = open ? "Close" : "Sections";
     });
-  },
-  { threshold: 0.12 }
-);
+  }
 
-document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  /* One gesture: content settles as you reach it. Skipped if the reader
+     has asked for reduced motion, or if IntersectionObserver is missing. */
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var targets = document.querySelectorAll(".reveal");
+
+  if (reduced || !("IntersectionObserver" in window)) {
+    targets.forEach(function (el) { el.classList.add("is-in"); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-in");
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+
+  targets.forEach(function (el) { io.observe(el); });
+})();

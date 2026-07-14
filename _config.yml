@@ -1,32 +1,56 @@
-title: "Air Quality Life Index Blog"
+title: "Air Quality Life Index"
 tagline: "Air pollution, translated into years of life"
-description: "A colorful, Markdown-first GitHub Pages blog for AQLI-style data stories on air pollution, life expectancy, and clean-air policy."
-author: "AQLI Team"
+description: >-
+  Evidence-led reporting on particulate pollution, life expectancy, and
+  clean-air policy from the Air Quality Life Index.
+lang: en_US
 
-# Project site example:
-# https://YOUR-USERNAME.github.io/aqli-blog
+# IMPORTANT: these two must match your repository.
+# For a project site at https://USERNAME.github.io/REPO/ :
+#   url     = "https://USERNAME.github.io"
+#   baseurl = "/REPO"          <- exact repo name, including hyphens/underscores
 url: "https://aqli-epic.github.io"
-baseurl: "/aqli_blog_demo"
+baseurl: "/aqli-blog"
+
+# Standing figures used across the site. Change in one place, not ten.
+who_guideline: 5          # WHO annual PM2.5 guideline, ug/m3
+aqli_coefficient: 0.098   # life-expectancy years gained per 1 ug/m3 reduction
+
+author:
+  name: "AQLI"
+  url: "https://aqli.epic.uchicago.edu"
 
 markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  input: GFM
+  syntax_highlighter: rouge
+
 permalink: /blog/:year/:month/:day/:title/
 
-collections:
-  posts:
-    output: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: /feed.xml
 
 defaults:
   - scope:
       path: ""
+      type: "pages"
     values:
       layout: "page"
   - scope:
-      path: "_posts"
+      path: ""
       type: "posts"
     values:
       layout: "post"
 
 exclude:
   - README.md
+  - POST-TEMPLATE.md
   - Gemfile
   - Gemfile.lock
+  - vendor

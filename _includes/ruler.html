@@ -1,0 +1,29 @@
+{%- comment -%}
+  The exposure ruler. Scale runs 0–100+ µg/m³ annual mean PM2.5.
+  Params:
+    value    (number, required)  the place's PM2.5
+    label    (string, optional)  text under the value mark
+    inline   (true, optional)    compact variant for story cards
+    animate  (true, optional)    slide the mark out from the guideline
+{%- endcomment -%}
+{%- assign v = include.value | plus: 0 -%}
+{%- if v > 100 -%}{%- assign pos = 100 -%}{%- else -%}{%- assign pos = v -%}{%- endif -%}
+{%- assign who = site.who_guideline -%}
+
+<figure class="ruler{% if include.inline %} ruler--inline{% endif %}{% if include.animate %} ruler--animate{% endif %}">
+  <div class="ruler__track" role="img"
+       aria-label="Annual mean PM2.5 of {{ v }} micrograms per cubic metre, against a WHO guideline of {{ who }}.">
+    <span class="ruler__band"></span>
+    <span class="ruler__band"></span>
+    <span class="ruler__band"></span>
+    <span class="ruler__band"></span>
+    <span class="ruler__band"></span>
+    <span class="ruler__band"></span>
+    <span class="ruler__mark ruler__mark--who" style="left: {{ who }}%" data-label="WHO {{ who }}"></span>
+    <span class="ruler__mark ruler__mark--value{% if pos > 78 %} ruler__mark--right{% endif %}"
+          style="left: {{ pos }}%" data-label="{{ include.label | default: v }}"></span>
+  </div>
+  <div class="ruler__scale" aria-hidden="true">
+    <span>0</span><span>25</span><span>50</span><span>75</span><span>100+ µg/m³</span>
+  </div>
+</figure>

@@ -1,119 +1,164 @@
 ---
 layout: home
 title: "Home"
+description: "Air pollution, translated into years of life. The Air Quality Life Index blog: evidence-led writing on PM2.5, life expectancy and clean-air policy."
 ---
 
-<section class="hero-grid">
-  <div class="hero-copy reveal">
-    <p class="eyebrow">AQLI Blog Demo</p>
-
+<section class="lead">
+  <div class="lead__copy reveal">
+    <p class="kicker">The Air Quality Life Index</p>
     <h1>Air pollution, translated into years of life.</h1>
-
-    <p class="lead">
-      A colorful, evidence-led blog for explaining how particulate pollution affects
-      life expectancy, why clean-air standards matter, and what better policy could
-      mean for people’s lives.
+    <p class="standfirst">
+      Particulate pollution is the largest external risk to human health, and it is almost entirely
+      invisible. This blog makes it legible: what the air holds, who breathes it, and how many years
+      a cleaner standard would give back.
     </p>
-
-    <div class="button-row">
-      <a class="button primary" href="{{ '/blog/' | relative_url }}">Read the blog</a>
-      <a class="button secondary" href="{{ '/topics/' | relative_url }}">Explore topics</a>
-    </div>
+    <p class="byline">
+      Written by the AQLI data team at the Energy Policy Institute at the University of Chicago
+    </p>
+    <p style="margin-top:1.5rem">
+      <a class="cta" href="{{ '/blog/' | relative_url }}">Read the stories</a>
+      <a class="cta cta--quiet" href="{{ '/methods/' | relative_url }}">See the method</a>
+    </p>
   </div>
 
-  <aside class="impact-panel reveal">
-    <p class="eyebrow">Core idea</p>
+  <figure class="lead__figure reveal">
+    <p class="kicker kicker--mute">The instrument</p>
 
-    <strong>PM<sub>2.5</sub> → exposure → life expectancy</strong>
+    <div class="lead__stat">
+      <b>{{ 55 | minus: site.who_guideline | times: site.aqli_coefficient | round: 1 }}</b>
+      <span>years of life expectancy, held in the gap between a district at 55 µg/m³ and the WHO guideline</span>
+    </div>
 
+    {% include ruler.html value=55 label="A district at 55 µg/m³" animate=true %}
+
+    <figcaption>
+      One scale, used on every story on this site: annual mean PM<sub>2.5</sub>, µg/m³. The guideline
+      mark sits at {{ site.who_guideline }}. The distance between the two marks is the whole subject
+      of the blog. Illustrative figure.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <div class="section__head">
+    <h2>Latest</h2>
+    <a href="{{ '/blog/' | relative_url }}">All stories</a>
+  </div>
+
+  {%- if site.posts.size > 0 -%}
+  <div class="columns">
+    {%- for post in site.posts limit: 3 -%}
+      {% include story.html post=post %}
+    {%- endfor -%}
+  </div>
+  {%- else -%}
+  <div class="empty reveal">
+    <p class="empty__lede">No stories published yet.</p>
     <p>
-      The blog turns technical pollution datasets into human-readable stories:
-      who is exposed, how much is at stake, and how cleaner air changes the future.
+      This is where the three most recent pieces will sit, each with the exposure it describes marked
+      on the ruler above. The first one is being written.
     </p>
+    <p class="datum">
+      Writing for the blog?
+      <a href="{{ '/write/' | relative_url }}">Start with the editorial guide</a> ·
+      <a href="{{ '/formatting/' | relative_url }}">then the formatting reference</a>
+    </p>
+  </div>
+  {%- endif -%}
+</section>
 
-    <div class="mini-equation">
+<section class="section">
+  <div class="section__head">
+    <h2>What this blog publishes</h2>
+    <a href="{{ '/topics/' | relative_url }}">Topics</a>
+  </div>
+
+  <div class="columns">
+    <div class="story reveal">
+      <p class="kicker kicker--mute">Exposure</p>
+      <h3>What the air actually holds</h3>
+      <p>
+        Long-term PM<sub>2.5</sub> concentrations for real places: districts, states, airsheds,
+        countries. Where the burden sits, how it has moved, and who is under it.
+      </p>
+    </div>
+
+    <div class="story reveal">
+      <p class="kicker kicker--mute">Policy</p>
+      <h3>What a standard is worth</h3>
+      <p>
+        Guidelines, national standards, and clean-air commitments, read closely. A target is only as
+        good as the years it buys, and some targets buy none.
+      </p>
+    </div>
+
+    <div class="story reveal">
+      <p class="kicker kicker--mute">Method</p>
+      <h3>How the number was made</h3>
+      <p>
+        Weighting, baselines, coefficients, and uncertainty. Every figure here is meant to be
+        checked, not trusted.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__head">
+    <h2>The equation, in full</h2>
+    <a href="{{ '/methods/' | relative_url }}">Methods</a>
+  </div>
+
+  <div class="equation-band reveal">
+    <p class="equation">
       <span>ΔLE</span>
       <b>=</b>
-      <span>ΔPM<sub>2.5</sub></span>
+      <span>( PM<sub>2.5</sub><sup>baseline</sup> − PM<sub>2.5</sub><sup>target</sup> )</span>
       <b>×</b>
       <span>β</span>
-    </div>
-  </aside>
-</section>
-
-<section class="recommendation-strip reveal">
-  <div>
-    <p class="eyebrow">Start here</p>
-    <h2>Recommended first sections</h2>
-  </div>
-
-  <div class="recommendation-grid">
-    <a class="recommend-card warm" href="{{ '/blog/' | relative_url }}">
-      <span>01</span>
-      <strong>Flagship stories</strong>
-      <p>Short, visual explanations of pollution burden and policy gains.</p>
-    </a>
-
-    <a class="recommend-card cool" href="{{ '/methods/' | relative_url }}">
-      <span>02</span>
-      <strong>Methods notes</strong>
-      <p>Clear documentation of assumptions, equations, and caveats.</p>
-    </a>
-
-    <a class="recommend-card deep" href="{{ '/data/' | relative_url }}">
-      <span>03</span>
-      <strong>Data corner</strong>
-      <p>Small reproducible datasets, charts, and downloadable tables.</p>
-    </a>
-  </div>
-</section>
-
-<section class="section reveal">
-  <div class="section-heading">
-    <p class="eyebrow">Editorial pillars</p>
-    <h2>Designed for researchers, policy readers, and the public.</h2>
-  </div>
-
-  <div class="cards three">
-    <article class="card color-card">
-      <span class="card-icon">📊</span>
-      <h3>Data stories</h3>
-      <p>Maps, trends, rankings, and explainers that make long-term PM₂.₅ exposure understandable.</p>
-    </article>
-
-    <article class="card color-card">
-      <span class="card-icon">🏛️</span>
-      <h3>Policy explainers</h3>
-      <p>Readable notes on standards, clean-air targets, regional progress, and possible gains.</p>
-    </article>
-
-    <article class="card color-card">
-      <span class="card-icon">🔬</span>
-      <h3>Methods transparency</h3>
-      <p>Simple equations, data caveats, baseline choices, and reproducible assumptions.</p>
-    </article>
-  </div>
-</section>
-
-<section class="visual-band reveal">
-  <div>
-    <p class="eyebrow">Visual identity</p>
-    <h2>AQLI-style pollution scale.</h2>
-    <p>
-      The color palette follows a pollution-map logic: clean and low exposure
-      in pale tones, higher pollution in orange, red, deep red, and wine.
+    </p>
+    <p class="datum">
+      β = {{ site.aqli_coefficient }} years of life expectancy per 1 µg/m³ of sustained reduction ·
+      WHO annual guideline = {{ site.who_guideline }} µg/m³ ·
+      both set once in <code>_config.yml</code> and used site-wide
     </p>
   </div>
+</section>
 
-  <div class="palette">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+<section class="section">
+  <div class="section__head">
+    <h2>For contributors</h2>
+    <a href="{{ '/write/' | relative_url }}">Editorial guide</a>
+  </div>
+
+  <div class="columns">
+    <div class="story reveal">
+      <p class="kicker kicker--mute">01</p>
+      <h3>Write the piece</h3>
+      <p>
+        The <a href="{{ '/write/' | relative_url }}">editorial guide</a> covers the shape of a post,
+        the headline test, the seven-line disclosure, and the words we do not use.
+      </p>
+    </div>
+
+    <div class="story reveal">
+      <p class="kicker kicker--mute">02</p>
+      <h3>Format the piece</h3>
+      <p>
+        The <a href="{{ '/formatting/' | relative_url }}">formatting reference</a> is the
+        copy-and-paste list: front matter, the ruler, methods boxes, tables, figures, footnotes,
+        maths.
+      </p>
+    </div>
+
+    <div class="story reveal">
+      <p class="kicker kicker--mute">03</p>
+      <h3>Publish it</h3>
+      <p>
+        Copy <code>POST-TEMPLATE.md</code> into <code>_posts/</code>, rename it
+        <code>YYYY-MM-DD-slug.md</code>, open a pull request. The post appears here on merge.
+      </p>
+    </div>
   </div>
 </section>

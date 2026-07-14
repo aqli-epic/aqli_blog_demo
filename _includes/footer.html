@@ -1,20 +1,33 @@
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <strong>{{ site.title }}</strong>
-      <p>{{ site.tagline }}</p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>{{ site.title }}</h2>
+        <p>{{ site.description }}</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="{{ '/blog/' | relative_url }}">Stories</a></li>
+          <li><a href="{{ '/topics/' | relative_url }}">Topics</a></li>
+          <li><a href="{{ '/methods/' | relative_url }}">Methods</a></li>
+          <li><a href="{{ '/data/' | relative_url }}">Data</a></li>
+          <li><a href="{{ '/write/' | relative_url }}">Write for us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></li>
+          <li><a href="{{ '/about/' | relative_url }}">Who writes this</a></li>
+          <li><a href="{{ '/assets/data/aqli_demo.csv' | relative_url }}">Download the demo data</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="footer-links">
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/methods/' | relative_url }}">Methods</a>
-      <a href="{{ '/data/' | relative_url }}">Data</a>
-    </div>
-
-    <div>
-      <p class="small-text">
-        Built with Markdown, Jekyll, and GitHub Pages.
-      </p>
+    <div class="footer__legal datum">
+      <span>Figures on this site are illustrative demo values, not published estimates.</span>
+      <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
     </div>
   </div>
 </footer>
