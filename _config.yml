@@ -10,7 +10,7 @@ lang: en_US
 #   url     = "https://USERNAME.github.io"
 #   baseurl = "/REPO"          <- exact repo name, including hyphens/underscores
 url: "https://aqli-epic.github.io"
-baseurl: "/aqli-blog"
+baseurl: "/aqli_blog_demo"
 
 # Standing figures used across the site. Change in one place, not ten.
 who_guideline: 5          # WHO annual PM2.5 guideline, ug/m3
