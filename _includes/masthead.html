@@ -1,0 +1,37 @@
+<div class="edition">
+  <div class="wrap edition__inner datum">
+    <span>{{ site.time | date: "%A, %-d %B %Y" }}</span>
+    <span>
+      WHO PM<sub>2.5</sub> guideline {{ site.who_guideline }} µg/m³
+      <span class="sep">/</span>
+      AQLI coefficient {{ site.aqli_coefficient }} yr per µg/m³
+      <span class="sep">/</span>
+      {% if site.posts.size == 0 %}No stories published yet{% else %}{{ site.posts | size }} {% if site.posts.size == 1 %}story{% else %}stories{% endif %}{% endif %}
+    </span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">
+      <b>Air Quality Life Index</b>
+      <small>{{ site.tagline }}</small>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Sections</button>
+
+    <nav class="nav" id="site-nav" aria-label="Sections">
+      <ul>
+        {%- assign links = "/blog/,Stories|/topics/,Topics|/methods/,Methods|/data/,Data|/write/,Write|/about/,About" | split: "|" -%}
+        {%- for link in links -%}
+          {%- assign parts = link | split: "," -%}
+          <li>
+            <a href="{{ parts[0] | relative_url }}"
+               {% if page.url contains parts[0] %}aria-current="page"{% endif %}>{{ parts[1] }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap"><hr class="rule-double"></div>
+</header>

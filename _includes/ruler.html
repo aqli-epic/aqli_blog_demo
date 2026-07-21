@@ -10,14 +10,7 @@
 {%- if v > 100 -%}{%- assign pos = 100 -%}{%- else -%}{%- assign pos = v -%}{%- endif -%}
 {%- assign who = site.who_guideline -%}
 
-{%- comment -%}
-  --who-pos is the guideline's position, handed to CSS so the arrival animation
-  starts from the same number the guideline mark is drawn at. Hardcoding it in
-  the keyframe meant revising who_guideline in _config.yml animated the mark out
-  from the wrong place.
-{%- endcomment -%}
-<figure class="ruler{% if include.inline %} ruler--inline{% endif %}{% if include.animate %} ruler--animate{% endif %}"
-        style="--who-pos: {{ who }}%">
+<figure class="ruler{% if include.inline %} ruler--inline{% endif %}{% if include.animate %} ruler--animate{% endif %}">
   <div class="ruler__track" role="img"
        aria-label="Annual mean PM2.5 of {{ v }} micrograms per cubic metre, against a WHO guideline of {{ who }}.">
     <span class="ruler__band"></span>

@@ -1,40 +1,33 @@
-<footer class="site-footer">
-  <div class="shell site-footer__grid">
-    <div>
-      <a class="wordmark wordmark--footer" href="{{ '/' | relative_url }}">
-        <span class="wordmark__symbol" aria-hidden="true">
-          <i></i><i></i><i></i><i></i>
-        </span>
-        <span>
-          <strong>AQLI</strong>
-          <em>Research Blog</em>
-        </span>
-      </a>
-      <p>{{ site.description }}</p>
-      <p class="footer-caveat">
-        Figures on this site are illustrative demonstration values, not published estimates.
-      </p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>{{ site.title }}</h2>
+        <p>{{ site.description }}</p>
+      </div>
+      <div>
+        <h2>Sections</h2>
+        <ul>
+          <li><a href="{{ '/blog/' | relative_url }}">Stories</a></li>
+          <li><a href="{{ '/topics/' | relative_url }}">Topics</a></li>
+          <li><a href="{{ '/methods/' | relative_url }}">Methods</a></li>
+          <li><a href="{{ '/data/' | relative_url }}">Data</a></li>
+          <li><a href="{{ '/write/' | relative_url }}">Write for us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></li>
+          <li><a href="{{ '/about/' | relative_url }}">Who writes this</a></li>
+          <li><a href="{{ '/assets/data/aqli_demo.csv' | relative_url }}">Download the demo data</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <h2>Sections</h2>
-      <a href="{{ '/blog/' | relative_url }}">Stories</a>
-      <a href="{{ '/topics/' | relative_url }}">Topics</a>
-      <a href="{{ '/methods/' | relative_url }}">Methods</a>
-      <a href="{{ '/data/' | relative_url }}">Data</a>
+    <div class="footer__legal datum">
+      <span>Figures on this site are illustrative demo values, not published estimates.</span>
+      <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
     </div>
-
-    <div>
-      <h2>Contribute</h2>
-      <a href="{{ '/write/' | relative_url }}">Editorial guide</a>
-      <a href="{{ '/formatting/' | relative_url }}">Formatting reference</a>
-      <a href="{{ '/assets/data/aqli_demo.csv' | relative_url }}">Download the demo data</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
-    </div>
-  </div>
-
-  <div class="shell site-footer__legal">
-    <span>© {{ site.time | date: "%Y" }} {{ site.author.name }}</span>
-    <span>Published estimates: <a href="https://aqli.epic.uchicago.edu/" rel="noopener">aqli.epic.uchicago.edu</a></span>
   </div>
 </footer>
