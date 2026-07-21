@@ -827,3 +827,95 @@ pre code { background: none; padding: 0; }
   filter: grayscale(1);
 }
 .entry--ghost h2 { color: var(--ink-soft); }
+/* ==========================================================================
+   AUTO-FIGURES
+   Any image an author writes in plain Markdown becomes a numbered, wide,
+   captioned figure. No include, no HTML, no classes to remember.
+
+       ![Alt text stating the finding]({{ '/assets/img/chart.gif' | relative_url }})
+       *Caption. Source: dataset, vintage.*
+
+   Works whether the caption is on the next line or after a blank line.
+   ========================================================================== */
+
+.article__body { counter-reset: figure; }
+
+/* The paragraph that contains the image becomes the figure frame. */
+.article__body p:has(> img) {
+  counter-increment: figure;
+  display: block;
+  width: min(58rem, 92vw);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 3.25rem 0;
+  padding-top: .85rem;
+  border-top: 1px solid var(--ink);
+  font-size: 1rem;
+}
+
+.article__body p:has(> img)::before {
+  content: "Figure " counter(figure);
+  display: block;
+  margin-bottom: .85rem;
+  font: 600 .6875rem/1 var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.article__body p:has(> img) img {
+  width: 100%;
+  display: block;
+  background: var(--paper-alt);
+}
+
+/* Caption — same paragraph as the image (no blank line between them). */
+.article__body p:has(> img) em {
+  display: block;
+  margin-top: .9rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--rule-hair);
+  max-width: 44rem;
+  font: 400 .8125rem/1.6 var(--sans);
+  font-style: normal;
+  color: var(--ink-soft);
+}
+
+/* Caption — its own paragraph (blank line between them). */
+.article__body p:has(> img) + p > em:only-child {
+  display: block;
+  width: min(58rem, 92vw);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 44rem;
+  margin: -2.4rem auto 3.25rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--rule-hair);
+  font: 400 .8125rem/1.6 var(--sans);
+  font-style: normal;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 62rem) {
+  .article__body p:has(> img),
+  .article__body p:has(> img) + p > em:only-child {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+}
+
+/* A GIF cannot be paused. Say so rather than ignoring the request. */
+@media (prefers-reduced-motion: reduce) {
+  .article__body p:has(> img[src$=".gif"]) em::after,
+  .article__body p:has(> img[src$=".gif"]) + p > em:only-child::after {
+    content: "This figure is animated and cannot be paused.";
+    display: block;
+    margin-top: .5rem;
+    font-family: var(--mono);
+    font-size: .6875rem;
+    color: var(--ink-mute);
+  }
+}
