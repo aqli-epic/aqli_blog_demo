@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AQLI particulate field</title>
+  <desc id="desc">Abstract air quality measurement points over a subtle map grid using maroon, gold, green, teal, and blue.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="0.42" stop-color="#f5fcff"/>
+      <stop offset="1" stop-color="#eef4ef"/>
+    </linearGradient>
+    <radialGradient id="hot" cx="28%" cy="44%" r="55%">
+      <stop offset="0" stop-color="#f8a429" stop-opacity="0.55"/>
+      <stop offset="0.34" stop-color="#c16622" stop-opacity="0.35"/>
+      <stop offset="0.64" stop-color="#8f3931" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#8f3931" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cool" cx="76%" cy="35%" r="52%">
+      <stop offset="0" stop-color="#5b96ad" stop-opacity="0.36"/>
+      <stop offset="0.5" stop-color="#155f83" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#155f83" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#1c2b39" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <path d="M133 438c88-65 164-76 260-55 64 14 123 10 184-20 73-35 158-35 235 8 77 42 167 57 258 31 126-36 252-5 363 84 49 39 76 84 86 136 12 60-4 108-47 143-66 54-173 47-265 2-75-36-158-44-248-19-129 36-246 24-350-35-87-49-178-58-273-27-107 36-198 8-255-83-38-62-22-117 52-165Z" fill="#ffffff" fill-opacity="0.45"/>
+  <path d="M127 421c93-71 174-83 276-60 67 15 129 11 194-21 78-37 169-37 251 8 82 45 178 60 275 33 134-38 268-5 386 89" fill="none" stroke="#1c2b39" stroke-opacity="0.16" stroke-width="3"/>
+  <ellipse cx="540" cy="444" rx="530" ry="310" fill="url(#hot)" filter="url(#soft)"/>
+  <ellipse cx="1110" cy="380" rx="470" ry="280" fill="url(#cool)" filter="url(#soft)"/>
+  <g fill="none" stroke="#155f83" stroke-opacity="0.22" stroke-width="2">
+    <path d="M120 665 C390 535 590 622 800 521 S1190 367 1472 493"/>
+    <path d="M161 240 C385 320 570 274 760 235 S1160 174 1434 298"/>
+    <path d="M262 760 C493 690 688 707 861 655 S1211 538 1408 600"/>
+  </g>
+  <g opacity="0.96">
+    <circle cx="210" cy="412" r="7" fill="#8f3931"/>
+    <circle cx="265" cy="390" r="4" fill="#c16622"/>
+    <circle cx="318" cy="432" r="12" fill="#f8a429"/>
+    <circle cx="370" cy="358" r="6" fill="#6d3227"/>
+    <circle cx="455" cy="476" r="14" fill="#c16622"/>
+    <circle cx="502" cy="390" r="5" fill="#8f3931"/>
+    <circle cx="570" cy="448" r="10" fill="#f8a429"/>
+    <circle cx="646" cy="510" r="6" fill="#9a5324"/>
+    <circle cx="702" cy="422" r="8" fill="#91ab5a"/>
+    <circle cx="783" cy="370" r="5" fill="#656d33"/>
+    <circle cx="830" cy="486" r="11" fill="#91ab5a"/>
+    <circle cx="910" cy="394" r="7" fill="#155f83"/>
+    <circle cx="980" cy="344" r="10" fill="#5b96ad"/>
+    <circle cx="1052" cy="430" r="6" fill="#155f83"/>
+    <circle cx="1128" cy="350" r="13" fill="#5b96ad"/>
+    <circle cx="1202" cy="455" r="7" fill="#00718e"/>
+    <circle cx="1290" cy="385" r="5" fill="#155f83"/>
+    <circle cx="1372" cy="475" r="11" fill="#5b96ad"/>
+  </g>
+  <g fill="#1c2b39" opacity="0.24">
+    <circle cx="180" cy="228" r="2"/>
+    <circle cx="250" cy="618" r="2"/>
+    <circle cx="410" cy="260" r="3"/>
+    <circle cx="480" cy="685" r="2"/>
+    <circle cx="630" cy="290" r="2"/>
+    <circle cx="720" cy="642" r="3"/>
+    <circle cx="860" cy="232" r="2"/>
+    <circle cx="1010" cy="610" r="2"/>
+    <circle cx="1180" cy="246" r="3"/>
+    <circle cx="1335" cy="650" r="2"/>
+    <circle cx="1460" cy="330" r="2"/>
+  </g>
+</svg>

@@ -20,6 +20,12 @@ author:
   name: "AQLI"
   url: "https://aqli.epic.uchicago.edu"
 
+# Social card, picked up by jekyll-seo-tag. A post can override it with its own
+# `image:` in front matter.
+image: /assets/img/og-card.png
+twitter:
+  card: summary_large_image
+
 markdown: kramdown
 kramdown:
   math_engine: mathjax
@@ -27,6 +33,10 @@ kramdown:
   syntax_highlighter: rouge
 
 permalink: /blog/:year/:month/:day/:title/
+
+# Without this, post dates render against the build machine's zone — a post can
+# appear to publish a day early or late depending on where it was built.
+timezone: Etc/UTC
 
 plugins:
   - jekyll-feed
@@ -50,7 +60,12 @@ defaults:
 
 exclude:
   - README.md
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - LICENSE
   - POST-TEMPLATE.md
   - Gemfile
   - Gemfile.lock
+  - script
   - vendor
+  - node_modules

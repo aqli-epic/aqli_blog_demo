@@ -1,18 +1,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#800000">
 
 {%- comment -%} Titles, description, canonical, Open Graph, Twitter cards {%- endcomment -%}
 {% seo %}
 
+{%- comment -%}
+  Display and body faces are Georgia and the system sans — already on the
+  device, so nothing blocks first paint. Only the data face is fetched.
+{%- endcomment -%}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap">
 
+<link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ffffff'/><rect x='2' y='7' width='12' height='2' fill='%23bc3a22'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ffffff'/><circle cx='4.5' cy='4.5' r='2.6' fill='%23800000'/><circle cx='11.5' cy='4.5' r='2.6' fill='%23b7832f'/><circle cx='4.5' cy='11.5' r='2.6' fill='%236f7f4b'/><circle cx='11.5' cy='11.5' r='2.6' fill='%23214f63'/></svg>">
 
 {%- if page.math -%}
 <script>

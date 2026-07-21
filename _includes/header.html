@@ -1,0 +1,43 @@
+<header class="site-header">
+  <div class="brand-bar">
+    <div class="shell brand-bar__inner">
+      {%- comment -%}
+        The standing figures ride in the brand bar, read from _config.yml, so the
+        two numbers the whole site depends on are visible on every page.
+      {%- endcomment -%}
+      <span>
+        WHO PM<sub>2.5</sub> guideline {{ site.who_guideline }} µg/m³
+        &nbsp;·&nbsp; AQLI coefficient {{ site.aqli_coefficient }} yr per µg/m³
+      </span>
+      <a href="https://aqli.epic.uchicago.edu/" rel="noopener">Official AQLI</a>
+    </div>
+  </div>
+
+  <nav class="main-nav shell" aria-label="Main navigation">
+    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+      <span class="wordmark__symbol" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </span>
+      <span>
+        <strong>AQLI</strong>
+        <em>Research Blog</em>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <div class="main-nav__links" id="primary-menu">
+      {%- assign links = "/blog/,Stories|/topics/,Topics|/methods/,Methods|/data/,Data|/write/,Write|/about/,About" | split: "|" -%}
+      {%- for link in links -%}
+        {%- assign parts = link | split: "," -%}
+        <a href="{{ parts[0] | relative_url }}"
+           {% if page.url contains parts[0] %}aria-current="page"{% endif %}>{{ parts[1] }}</a>
+      {%- endfor -%}
+    </div>
+  </nav>
+</header>

@@ -2,6 +2,11 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
-Gemfile.lock
 vendor/
+.bundle/
+node_modules/
 .DS_Store
+
+# Gemfile.lock IS committed. The site is built by GitHub Actions rather than by
+# the Pages branch builder, so the lockfile is what makes CI and production
+# reproducible — and ruby/setup-ruby's dependency cache keys off it.
