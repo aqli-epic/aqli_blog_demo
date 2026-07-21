@@ -1,7 +1,7 @@
 ---
 title: "Global burned area is falling. The fires that matter most are rising."
 section: "Exposure"
-author: ["Dr. Hrishikesh Chandra Gautam" "Purushottam Gupta"]
+author: ["Dr. Hrishikesh Chandra Gautam", "Purushottam Gupta"]
 standfirst: "Twenty-three years of satellite data show the planet burning about a sixth less than it did in 2002. It is also true that the fires nearest to human lungs are increasing. Both facts come from the same file."
 tags: [global, india, data, pm2.5]
 reading_time: 12
