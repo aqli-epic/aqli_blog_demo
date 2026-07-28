@@ -38,6 +38,11 @@ bundle exec htmlproofer _site --disable-external --allow-hash-href \
 > On a non-UTF-8 locale, Nokogiri fails to parse every page and HTMLProofer still exits 0 — having
 > checked nothing. If you see `Checking 0 internal links`, set `LANG=en_US.UTF-8`.
 
+> Stop `jekyll serve` before proofing. It rewrites `_site` continuously with `url` overridden to
+> `http://localhost:4000`, so every canonical tag comes out `http://` and HTMLProofer reports one
+> "is not an HTTPS link" failure per page. Those failures are an artefact of the running server, not
+> a fault in the site. CI never hits this — it builds from a clean checkout with no server.
+
 ## Deployment
 
 The site is built and deployed by **GitHub Actions** ([`pages.yml`](.github/workflows/pages.yml)),

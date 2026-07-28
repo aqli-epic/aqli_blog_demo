@@ -73,6 +73,14 @@ bundle exec jekyll build
 bundle exec htmlproofer _site --disable-external --swap-urls "^/aqli_blog_demo:"
 ```
 
+Two traps in that last command, both of which report the wrong answer rather than an error:
+
+- **Stop `jekyll serve` first.** It regenerates `_site` on a watch loop with `url` overridden to
+  `http://localhost:4000`, so every page's canonical tag becomes `http://` and you get one
+  "is not an HTTPS link" failure per page. Nothing is actually wrong with the site.
+- **Use a UTF-8 locale.** Under `LANG=C`, Nokogiri fails to parse every page — and HTMLProofer
+  still exits 0. `Checking 0 internal links` in the output means it checked nothing.
+
 ### Two conventions that are not negotiable
 
 **The brand palette and the data palette are separate.** Maroon, gold, blue and green are chrome:
