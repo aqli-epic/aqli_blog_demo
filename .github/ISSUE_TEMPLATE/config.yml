@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: How to write for this blog
+    url: https://aqli-epic.github.io/aqli_blog_demo/write/
+    about: The editorial guide — the shape of a post, the headline test, the seven-line disclosure.
+  - name: Formatting reference
+    url: https://aqli-epic.github.io/aqli_blog_demo/formatting/
+    about: Front matter, the exposure ruler, methods boxes, tables and maths.
+  - name: The Air Quality Life Index
+    url: https://aqli.epic.uchicago.edu
+    about: Questions about AQLI data or methodology rather than this website.

@@ -1,44 +1,103 @@
 ---
 layout: default
 ---
-<article class="wrap article">
-  <header class="article__head">
-    <p class="kicker">{{ page.section | default: "Story" }}</p>
-    <h1>{{ page.title }}</h1>
-    {% if page.standfirst %}<p class="standfirst">{{ page.standfirst }}</p>{% endif %}
-    <p class="byline">
-      By {{ page.author | default: site.author.name }}
-      <span class="sep">·</span>
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
-      {% if page.reading_time %}<span class="sep">·</span> {{ page.reading_time }} min read{% endif %}
-    </p>
-  </header>
 
-  {%- if page.pm25 -%}
-  <div class="figure-wide reveal">
-    <p class="kicker">Where this story sits on the scale</p>
-    <div class="lead__stat">
-      <b>{{ page.pm25 }}</b>
-      <span>µg/m³ annual mean PM<sub>2.5</sub> in {{ page.place }}</span>
+{%- comment -%}
+  Reading time is derived from the text unless the front matter overrides it, so
+  it cannot drift as a post is edited. 200 wpm.
+{%- endcomment -%}
+{%- assign minutes = page.reading_time -%}
+{%- unless minutes -%}
+  {%- assign minutes = content | number_of_words | divided_by: 200 | plus: 1 -%}
+{%- endunless -%}
+
+<main id="main-content" class="article-page">
+  <article>
+    <header class="article-hero">
+      <div class="shell article-hero__grid">
+        <div class="article-hero__text">
+          <a class="text-link" href="{{ '/blog/' | relative_url }}">All stories</a>
+          <p class="meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+            · {{ page.section | default: "Story" }}
+          </p>
+          <h1>{{ page.title }}</h1>
+          {% if page.standfirst %}<p class="article-summary">{{ page.standfirst }}</p>{% endif %}
+          <div class="article-byline">
+            <span>By {{ page.author | default: site.author.name }}</span>
+            <span>{{ minutes }} min read</span>
+          </div>
+        </div>
+
+        {%- comment -%}
+          Where a story is about a place, the hero's second column carries that
+          place's exposure rather than a decorative image. The number is the
+          picture.
+        {%- endcomment -%}
+        {%- if page.pm25 -%}
+        <figure class="data-figure">
+          <p class="eyebrow">Where this story sits on the scale</p>
+          <div class="stat">
+            <b>{{ page.pm25 }}</b>
+            <span>µg/m³ annual mean PM<sub>2.5</sub> in {{ page.place }}</span>
+          </div>
+          {% include ruler.html value=page.pm25 label=page.place animate=true %}
+          <figcaption class="data-figure__note">
+            Gap to the WHO guideline: {{ page.pm25 | minus: site.who_guideline }} µg/m³.
+            Implied life-expectancy gain if closed:
+            {{ page.pm25 | minus: site.who_guideline | times: site.aqli_coefficient | round: 2 }} years.
+          </figcaption>
+        </figure>
+        {%- else -%}
+        <div class="article-hero__image">
+          <img src="{{ page.image | default: '/assets/images/aqli-particulate-field.png' | relative_url }}"
+               alt="{{ page.image_alt | default: '' | escape }}">
+        </div>
+        {%- endif -%}
+      </div>
+    </header>
+
+    <div class="article-body shell">
+      <aside class="article-aside" aria-label="Post details">
+        <div>
+          <strong>Published</strong>
+          <span>{{ page.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <div>
+          <strong>Section</strong>
+          <span>{{ page.section | default: "Story" }}</span>
+        </div>
+        {%- if page.pm25 -%}
+        <div>
+          <strong>Place</strong>
+          <span>{{ page.place }}</span>
+        </div>
+        <div>
+          <strong>Annual mean PM<sub>2.5</sub></strong>
+          <span class="article-aside__figure">{{ page.pm25 }} µg/m³</span>
+        </div>
+        <div>
+          <strong>Years at stake</strong>
+          <span class="article-aside__figure">
+            {{ page.pm25 | minus: site.who_guideline | times: site.aqli_coefficient | round: 2 }}
+          </span>
+        </div>
+        {%- endif -%}
+        {%- if page.tags -%}
+        <div>
+          <strong>Topics</strong>
+          <span>{{ page.tags | join: ", " }}</span>
+        </div>
+        {%- endif -%}
+        <div>
+          <strong>Reading time</strong>
+          <span>{{ minutes }} min</span>
+        </div>
+      </aside>
+
+      <div class="prose">
+        {{ content }}
+      </div>
     </div>
-    {% include ruler.html value=page.pm25 label=page.place animate=true %}
-    <p class="datum" style="margin-top:2.25rem">
-      Gap to the WHO guideline: {{ page.pm25 | minus: site.who_guideline }} µg/m³ ·
-      Implied life-expectancy gain if closed:
-      {{ page.pm25 | minus: site.who_guideline | times: site.aqli_coefficient | round: 2 }} years
-    </p>
-  </div>
-  {%- endif -%}
-
-  <div class="article__body">
-    {{ content }}
-  </div>
-
-  <div class="article__body" style="margin-top:3rem">
-    <hr class="rule-double">
-    <p class="byline" style="margin-top:1.25rem">
-      {% if page.tags %}Filed under: {{ page.tags | join: ", " }} · {% endif %}
-      <a href="{{ '/blog/' | relative_url }}">All stories</a>
-    </p>
-  </div>
-</article>
+  </article>
+</main>

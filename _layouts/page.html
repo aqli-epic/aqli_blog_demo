@@ -1,14 +1,21 @@
 ---
 layout: default
 ---
-<div class="wrap page">
-  <div class="page__head">
-    <p class="kicker">{{ page.section | default: "Section" }}</p>
+
+<main id="main-content" class="page-shell">
+  <section class="page-hero shell">
+    <p class="eyebrow">{{ page.section | default: "Section" }}</p>
     <h1>{{ page.title }}</h1>
     {% if page.standfirst %}<p>{{ page.standfirst }}</p>{% endif %}
-  </div>
+  </section>
 
-  <div class="prose{% if page.wide %} prose--wide{% endif %}">
-    {{ content }}
-  </div>
-</div>
+  <section class="section">
+    {%- comment -%}
+      `wide: true` in front matter opts a page out of the reading measure — used
+      by the pages that are mostly tables, registers or indexes rather than prose.
+    {%- endcomment -%}
+    <div class="prose shell{% unless page.wide %} shell--narrow{% endunless %}">
+      {{ content }}
+    </div>
+  </section>
+</main>

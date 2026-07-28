@@ -1,0 +1,69 @@
+name: Story pitch
+description: Propose a piece for the blog
+title: "Pitch: "
+labels: ["pitch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pitch the claim, not the subject. If the pitch survives editing, the next step is a
+        pull request adding `_posts/YYYY-MM-DD-slug.md`.
+
+  - type: input
+    id: claim
+    attributes:
+      label: The claim
+      description: What would the headline assert? A claim, not a topic.
+      placeholder: The years hidden in one district's air
+    validations:
+      required: true
+
+  - type: textarea
+    id: finding
+    attributes:
+      label: The finding
+      description: One or two sentences saying what you found. This becomes the standfirst.
+    validations:
+      required: true
+
+  - type: input
+    id: figure
+    attributes:
+      label: The number
+      description: The single figure the piece rests on, with its unit.
+      placeholder: "55 µg/m³ annual mean PM2.5; 4.9 years against the WHO guideline"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options: [Exposure, Policy, Method, Data, Comment]
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Data source and vintage
+      description: Where the number comes from, and for which year.
+    validations:
+      required: true
+
+  - type: textarea
+    id: weaknesses
+    attributes:
+      label: Where a reader should be sceptical
+      description: Name two or three specific weaknesses in the analysis. Not "there is uncertainty".
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Can you fill all seven disclosure lines?
+      description: Baseline year, target, geographic unit, weighting, source, coefficient, uncertainty.
+      options:
+        - label: Yes — all seven are available to me
+          required: true

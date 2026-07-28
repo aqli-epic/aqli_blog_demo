@@ -1,35 +1,42 @@
 (function () {
   "use strict";
 
-  /* Mobile sections menu */
-  var toggle = document.querySelector(".nav-toggle");
-  var nav = document.getElementById("site-nav");
+  /* Mobile navigation */
+  var navToggle = document.querySelector(".nav-toggle");
+  var navLinks = document.querySelector(".main-nav__links");
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.textContent = open ? "Close" : "Sections";
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", function () {
+      var isOpen = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!isOpen));
+      navLinks.classList.toggle("is-open", !isOpen);
     });
   }
 
-  /* One gesture: content settles as you reach it. Skipped if the reader
-     has asked for reduced motion, or if IntersectionObserver is missing. */
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var targets = document.querySelectorAll(".reveal");
+  /* Client-side filtering of story cards. Each card carries a data-search
+     haystack built in post-card.html from title, standfirst, author, place,
+     section and tags. The search box itself is hidden until the `js` class is
+     set, so a reader without JavaScript is never shown a control that cannot
+     do anything. */
+  var inputs = document.querySelectorAll("[data-post-search]");
 
-  if (reduced || !("IntersectionObserver" in window)) {
-    targets.forEach(function (el) { el.classList.add("is-in"); });
-    return;
-  }
+  Array.prototype.forEach.call(inputs, function (input) {
+    var scope = input.closest(".section") || document;
+    var cards = scope.querySelectorAll("[data-post-card]");
+    var empty = scope.querySelector("[data-empty-state]");
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-in");
-      io.unobserve(entry.target);
+    input.addEventListener("input", function () {
+      var query = input.value.trim().toLowerCase();
+      var visible = 0;
+
+      Array.prototype.forEach.call(cards, function (card) {
+        var haystack = card.getAttribute("data-search") || "";
+        var match = !query || haystack.indexOf(query) !== -1;
+        card.hidden = !match;
+        if (match) visible += 1;
+      });
+
+      if (empty) empty.hidden = visible !== 0;
     });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
-
-  targets.forEach(function (el) { io.observe(el); });
+  });
 })();
