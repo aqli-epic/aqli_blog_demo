@@ -31,5 +31,5 @@ end
 # the same check CI runs:
 #   bundle exec htmlproofer _site --disable-external --swap-urls "^/aqli_blog_demo:"
 group :test do
-  gem "html-proofer", "~> 5.0"
+  gem "html-proofer", "~> 5.2"
 end
